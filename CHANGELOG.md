@@ -19,6 +19,7 @@ to `X.Y.Z`.
 ### Fixed
 
 - Loading the generated `pretty-tables-autoloads.el` no longer fails with "Symbol's function definition is void: pretty-tables-define-mode", which made package managers such as straight.el abort. `pretty-tables-for-org-mode` and `pretty-tables-for-markdown-mode` are autoloaded by a plain `autoload` call in the autoloads file, still as commands only in `org-mode` and `markdown-ts-mode` buffers.
+- On a drawn row, point stays where a command puts it, and the cursor is on the drawn character that shows the text at point (on a row drawn over several screen lines, only on its last screen line). Before, Emacs moved point out of the drawn row's hidden text: a command that moved point back into it, such as `C-b` or evil's `k`, landed on the line above.
 
 ## [0.8.0] - 2026-11-25
 
