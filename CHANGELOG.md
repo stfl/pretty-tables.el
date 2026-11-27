@@ -20,7 +20,7 @@ to `X.Y.Z`.
 
 - Loading the generated `pretty-tables-autoloads.el` no longer fails with "Symbol's function definition is void: pretty-tables-define-mode", which made package managers such as straight.el abort. `pretty-tables-for-org-mode` and `pretty-tables-for-markdown-mode` are autoloaded by a plain `autoload` call in the autoloads file, still as commands only in `org-mode` and `markdown-ts-mode` buffers.
 - On a drawn row, point stays where a command puts it, and the cursor is on the drawn character that shows the text at point (on a row drawn over several screen lines, only on its last screen line). Before, Emacs moved point out of the drawn row's hidden text: a command that moved point back into it, such as `C-b` or evil's `k`, landed on the line above.
-- With `org-indent-mode`, an Org table is drawn again once `org-indent-mode` has put its `line-prefix` on the lines, and again when it is turned off. Before, a table drawn before `org-indent-mode` had indented the buffer, as when a file is opened, took no room for the indentation: with soft wrap, each drawn row as wide as the text area spilled onto a second screen line, and the wrapped lines of a row were not indented.
+- With `org-indent-mode`, an Org table makes room for the indentation of its lines, and the wrapped lines of its rows are indented. Before, `org-indent-mode` indented the lines after the table was drawn: when a file was opened, or below a heading whose level changed. With soft wrap, each drawn row as wide as the text area spilled onto a second screen line.
 
 ## [0.8.0] - 2026-11-25
 
